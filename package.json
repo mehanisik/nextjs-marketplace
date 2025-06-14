@@ -1,0 +1,41 @@
+{
+  "name": "next-marketplace",
+  "description": "An e-commerce platform for digital products and marketplace for designers and other creators to create and sell their products",
+  "license": "MIT",
+  "author": "mehanisik",
+  "type": "module",
+  "files": ["dist/index.js"],
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "dev": "turbo dev --parallel",
+    "test": "turbo test --parallel",
+    "dev:web": "turbo run dev --filter=@next-marketplace/web",
+    "dev:admin": "turbo run dev --filter=@next-marketplace/admin",
+    "format": "biome format --write .",
+    "lint": "turbo lint && manypkg check",
+    "typecheck": "turbo typecheck",
+    "translate": "turbo run translate",
+    "boundaries": "turbo run boundaries",
+    "bump-deps": "bunx npm-check-updates --deep -u -x react-day-picker",
+    "bump-ui": "bunx shadcn@latest add --all --overwrite -c packages/design-system",
+    "add-ui": "bunx --bun shadcn@latest add -c packages/design-system",
+    "migrate": "cd packages/database && bunx prisma format && bunx prisma generate && bunx prisma db push",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "turbo run build && changeset publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@manypkg/cli": "^0.24.0",
+    "turbo": "2.5.4",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18",
+    "bun": ">=1.0.0"
+  },
+  "packageManager": "bun@1.2.16"
+}
