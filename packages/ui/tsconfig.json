@@ -12,8 +12,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@/design-system/*": ["./*"],
-      "@next-marketplace/design-system/*": ["./*"]
+      "@/ui/*": ["./*"],
+      "@next-marketplace/ui/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

@@ -1,1 +1,1 @@
-export { default } from "@next-marketplace/design-system/postcss.config.mjs";
+export { default } from "@next-marketplace/ui/postcss.config.mjs";

@@ -1,6 +1,6 @@
 {
   "name": "@next-marketplace/web",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production next build",
@@ -12,15 +12,21 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@next-marketplace/design-system": "workspace:*",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.3"
+    "@next-marketplace/ui": "workspace:*",
+    "next": "15.3.3",
+    "next-safe-action": "^7.10.8",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hls-player": "^3.0.7",
+    "react-use-draggable-scroll": "^0.4.7",
+    "resend": "^4.5.1",
+    "server-only": "^0.0.1",
+    "sharp": "0.34.1",
+    "sugar-high": "^0.9.3"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@next-marketplace/tsconfig": "workspace:*",
+    "@types/node": "^22.15.29",
+    "@types/react": "19.1.6"
   }
 }

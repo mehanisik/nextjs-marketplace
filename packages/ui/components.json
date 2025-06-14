@@ -11,11 +11,11 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@next-marketplace/design-system/components",
-    "utils": "@next-marketplace/design-system/lib/utils",
-    "hooks": "@next-marketplace/design-system/hooks",
-    "lib": "@next-marketplace/design-system/lib",
-    "ui": "@next-marketplace/design-system/components/ui"
+    "components": "@next-marketplace/ui/components",
+    "utils": "@next-marketplace/ui/lib/utils",
+    "hooks": "@next-marketplace/ui/hooks",
+    "lib": "@next-marketplace/ui/lib",
+    "ui": "@next-marketplace/ui/components/ui"
   },
   "iconLibrary": "lucide"
 }

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "@next-marketplace/ui/styles/global.css";
 
 :root {
   --background: #ffffff;
