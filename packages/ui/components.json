@@ -15,7 +15,7 @@
     "utils": "@next-marketplace/ui/lib/utils",
     "hooks": "@next-marketplace/ui/hooks",
     "lib": "@next-marketplace/ui/lib",
-    "ui": "@next-marketplace/ui/components/ui"
+    "ui": "@repo/design-system/components/ui"
   },
   "iconLibrary": "lucide"
 }

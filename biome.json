@@ -11,8 +11,7 @@
       "node_modules/**",
       ".turbo",
       ".next",
-      ".next/**",
-      "packages/ui/components/ui/**"
+      ".next/**"
     ]
   },
   "linter": {

@@ -1,31 +1,25 @@
 {
   "name": "next-marketplace",
-  "description": "An e-commerce platform for digital products and marketplace for designers and other creators to create and sell their products",
-  "license": "MIT",
-  "author": "mehanisik",
-  "type": "module",
-  "files": ["dist/index.js"],
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": ["packages/*", "apps/*"],
   "scripts": {
     "build": "turbo build",
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
     "dev": "turbo dev --parallel",
     "test": "turbo test --parallel",
-    "dev:web": "turbo run dev --filter=@next-marketplace/web",
-    "dev:admin": "turbo run dev --filter=@next-marketplace/admin",
+    "start:dashboard": "turbo start --filter=@midday/dashboard",
+    "start:website": "turbo start --filter=@midday/website",
+    "dev:api": "turbo dev --filter=@midday/api",
+    "dev:dashboard": "turbo dev --filter=@midday/dashboard",
+    "build:dashboard": "turbo build --filter=@midday/dashboard",
+    "dev:engine": "turbo dev --filter=@midday/engine",
+    "dev:website": "turbo dev --filter=@midday/website ",
+    "dev:desktop": "turbo dev --filter=@midday/desktop",
+    "jobs:dashboard": "turbo jobs --filter=@midday/jobs",
     "format": "biome format --write .",
-    "lint": "turbo lint && manypkg check",
-    "typecheck": "turbo typecheck",
-    "translate": "turbo run translate",
-    "boundaries": "turbo run boundaries",
-    "bump-deps": "bunx npm-check-updates --deep -u -x react-day-picker",
     "bump-ui": "bunx shadcn@latest add --all --overwrite -c packages/ui",
-    "add-ui": "bunx --bun shadcn@latest add -c packages/ui",
-    "migrate": "cd packages/database && bunx prisma format && bunx prisma generate && bunx prisma db push",
-    "changeset": "changeset",
-    "version": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "lint": "turbo lint && manypkg check",
+    "typecheck": "turbo typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -33,9 +27,5 @@
     "turbo": "2.5.4",
     "typescript": "^5.8.3"
   },
-  "engines": {
-    "node": ">=18",
-    "bun": ">=1.0.0"
-  },
-  "packageManager": "bun@1.2.16"
+  "packageManager": "bun@1.2.15"
 }

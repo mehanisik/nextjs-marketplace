@@ -11,19 +11,30 @@
         "!.next/cache/**",
         "dist/**",
         "**/generated/**",
-        "storybook-static/**"
+        "storybook-static/**",
+        "build/**"
       ]
     },
     "dev": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.jsx", "src/**/*.js"]
     },
     "lint": {
-      "outputs": []
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.jsx", "src/**/*.js"]
     },
     "format": {
-      "outputs": []
+      "outputs": [],
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        "src/**/*.jsx",
+        "src/**/*.js",
+        "*.json",
+        "*.md"
+      ]
     },
     "test": {
       "dependsOn": ["^build"],
@@ -31,7 +42,8 @@
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
     "clean": {
-      "cache": false
+      "cache": false,
+      "outputs": ["dist/**", ".next/**", "node_modules/**", "coverage/**"]
     },
     "analyze": {
       "cache": false,
@@ -39,7 +51,16 @@
     },
     "translate": {
       "cache": false,
-      "outputs": ["messages/**"]
+      "outputs": ["messages/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
+    },
+    "typecheck": {
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "*.ts", "*.tsx"]
+    },
+    "boundaries": {
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     }
   }
 }

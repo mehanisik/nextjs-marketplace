@@ -1,18 +1,14 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@next-marketplace/tsconfig/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./*"],
-      "@/ui/*": ["./*"],
+      "@next-marketplace/*": ["../*"],
       "@next-marketplace/ui/*": ["./*"]
     }
   },
