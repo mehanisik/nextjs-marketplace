@@ -1,42 +1,48 @@
+"use client";
+
+import { useScopedI18n } from "@repo/localization/src/client";
+
 interface Step {
   id: string;
   number: number;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 }
 
-const steps: Step[] = [
-  {
-    id: "create-account",
-    number: 1,
-    title: "Create an Account",
-    description: "Sign up and complete your profile in minutes",
-  },
-  {
-    id: "list-browse",
-    number: 2,
-    title: "List or Browse",
-    description: "Start selling your items or explore listings",
-  },
-  {
-    id: "start-trading",
-    number: 3,
-    title: "Start Trading",
-    description: "Make secure transactions and grow your business",
-  },
-];
-
 export function HowItWorks() {
+  const t = useScopedI18n("howItWorks");
+
+  const steps: Step[] = [
+    {
+      id: "create-account",
+      number: 1,
+      titleKey: "steps.createAccount.title",
+      descriptionKey: "steps.createAccount.description",
+    },
+    {
+      id: "list-browse",
+      number: 2,
+      titleKey: "steps.listBrowse.title",
+      descriptionKey: "steps.listBrowse.description",
+    },
+    {
+      id: "start-trading",
+      number: 3,
+      titleKey: "steps.startTrading.title",
+      descriptionKey: "steps.startTrading.description",
+    },
+  ];
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              How It Works
+              {t("title")}
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Get started in three simple steps
+              {t("description")}
             </p>
           </div>
         </div>
@@ -46,9 +52,9 @@ export function HowItWorks() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
                 {step.number}
               </div>
-              <h3 className="text-xl font-bold">{step.title}</h3>
+              <h3 className="text-xl font-bold">{t(step.titleKey as any)}</h3>
               <p className="text-center text-muted-foreground">
-                {step.description}
+                {t(step.descriptionKey as any)}
               </p>
             </div>
           ))}

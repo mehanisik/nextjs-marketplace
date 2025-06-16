@@ -1,6 +1,6 @@
 "use client";
 
-import { useTolgee } from "@repo/localization/tolgee";
+import { useI18n, useScopedI18n } from "@repo/localization/src/client";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
@@ -15,86 +15,90 @@ interface FooterSection {
 }
 
 export function Footer() {
-  const tolgee = useTolgee();
+  const t = useI18n();
+  const footerT = useScopedI18n("footer");
 
   const footerSections: FooterSection[] = [
     {
-      title: tolgee.t("footer.sections.product.title"),
+      title: footerT("sections.product.title"),
       links: [
         {
-          title: tolgee.t("footer.sections.product.links.features"),
+          title: footerT("sections.product.links.features"),
           href: "/features",
         },
         {
-          title: tolgee.t("footer.sections.product.links.pricing"),
+          title: footerT("sections.product.links.pricing"),
           href: "/pricing",
         },
         {
-          title: tolgee.t("footer.sections.product.links.testimonials"),
+          title: footerT("sections.product.links.testimonials"),
           href: "/testimonials",
         },
-        { title: tolgee.t("footer.sections.product.links.faq"), href: "/faq" },
+        {
+          title: footerT("sections.product.links.faq"),
+          href: "/faq",
+        },
       ],
     },
     {
-      title: tolgee.t("footer.sections.company.title"),
+      title: footerT("sections.company.title"),
       links: [
         {
-          title: tolgee.t("footer.sections.company.links.about"),
+          title: footerT("sections.company.links.about"),
           href: "/about",
         },
         {
-          title: tolgee.t("footer.sections.company.links.blog"),
+          title: footerT("sections.company.links.blog"),
           href: "/blog",
         },
         {
-          title: tolgee.t("footer.sections.company.links.careers"),
+          title: footerT("sections.company.links.careers"),
           href: "/careers",
         },
         {
-          title: tolgee.t("footer.sections.company.links.contact"),
+          title: footerT("sections.company.links.contact"),
           href: "/contact",
         },
       ],
     },
     {
-      title: tolgee.t("footer.sections.resources.title"),
+      title: footerT("sections.resources.title"),
       links: [
         {
-          title: tolgee.t("footer.sections.resources.links.documentation"),
+          title: footerT("sections.resources.links.documentation"),
           href: "/docs",
         },
         {
-          title: tolgee.t("footer.sections.resources.links.api"),
+          title: footerT("sections.resources.links.api"),
           href: "/api",
         },
         {
-          title: tolgee.t("footer.sections.resources.links.community"),
+          title: footerT("sections.resources.links.community"),
           href: "/community",
         },
         {
-          title: tolgee.t("footer.sections.resources.links.support"),
+          title: footerT("sections.resources.links.support"),
           href: "/support",
         },
       ],
     },
     {
-      title: tolgee.t("footer.sections.legal.title"),
+      title: footerT("sections.legal.title"),
       links: [
         {
-          title: tolgee.t("footer.sections.legal.links.privacy"),
+          title: footerT("sections.legal.links.privacy"),
           href: "/privacy",
         },
         {
-          title: tolgee.t("footer.sections.legal.links.terms"),
+          title: footerT("sections.legal.links.terms"),
           href: "/terms",
         },
         {
-          title: tolgee.t("footer.sections.legal.links.cookies"),
+          title: footerT("sections.legal.links.cookies"),
           href: "/cookies",
         },
         {
-          title: tolgee.t("footer.sections.legal.links.licenses"),
+          title: footerT("sections.legal.links.licenses"),
           href: "/licenses",
         },
       ],
@@ -143,7 +147,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col items-center justify-between gap-4 border-t py-6 md:flex-row">
           <div className="text-center text-sm text-muted-foreground md:text-left">
-            {tolgee.t("footer.copyright", { year: new Date().getFullYear() })}
+            © {new Date().getFullYear()} Next Marketplace. All rights reserved.
           </div>
           <div className="flex gap-4">
             {socialLinks.map((social) => (

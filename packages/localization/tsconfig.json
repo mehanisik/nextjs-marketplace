@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "include": ["**/tolgee/**/*.ts", "**/tolgee/**/*.tsx"],
+
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

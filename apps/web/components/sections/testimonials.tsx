@@ -6,65 +6,57 @@ import {
   AvatarImage,
 } from "@next-marketplace/ui/components/ui/avatar";
 import { Card, CardContent } from "@next-marketplace/ui/components/ui/card";
+import { useScopedI18n } from "@repo/localization/src/client";
 
 interface Testimonial {
   id: string;
-  content: string;
-  author: {
-    name: string;
-    role: string;
-    company: string;
-    avatar: string;
-  };
+  contentKey: string;
+  authorNameKey: string;
+  authorRoleKey: string;
+  authorCompanyKey: string;
+  avatar: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    id: "testimonial-1",
-    content:
-      "Next Marketplace has transformed how we sell our digital products. The platform is intuitive, secure, and has helped us reach new customers worldwide.",
-    author: {
-      name: "Sarah Chen",
-      role: "Digital Artist",
-      company: "Creative Studio",
+export function Testimonials() {
+  const t = useScopedI18n("testimonials");
+
+  const testimonials: Testimonial[] = [
+    {
+      id: "testimonial-1",
+      contentKey: "items.testimonial1.content",
+      authorNameKey: "items.testimonial1.authorName",
+      authorRoleKey: "items.testimonial1.authorRole",
+      authorCompanyKey: "items.testimonial1.authorCompany",
       avatar: "/avatars/sarah.jpg",
     },
-  },
-  {
-    id: "testimonial-2",
-    content:
-      "As a buyer, I love the seamless experience and the quality of products available. The platform makes it easy to find exactly what I need.",
-    author: {
-      name: "Michael Rodriguez",
-      role: "Designer",
-      company: "Tech Solutions",
+    {
+      id: "testimonial-2",
+      contentKey: "items.testimonial2.content",
+      authorNameKey: "items.testimonial2.authorName",
+      authorRoleKey: "items.testimonial2.authorRole",
+      authorCompanyKey: "items.testimonial2.authorCompany",
       avatar: "/avatars/michael.jpg",
     },
-  },
-  {
-    id: "testimonial-3",
-    content:
-      "The analytics and tools provided by Next Marketplace have helped us optimize our sales and understand our customers better.",
-    author: {
-      name: "Emma Thompson",
-      role: "Product Manager",
-      company: "Digital Goods Co",
+    {
+      id: "testimonial-3",
+      contentKey: "items.testimonial3.content",
+      authorNameKey: "items.testimonial3.authorName",
+      authorRoleKey: "items.testimonial3.authorRole",
+      authorCompanyKey: "items.testimonial3.authorCompany",
       avatar: "/avatars/emma.jpg",
     },
-  },
-];
+  ];
 
-export function Testimonials() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-              What Our Users Say
+              {t("title")}
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Join thousands of satisfied creators and buyers on our platform
+              {t("description")}
             </p>
           </div>
         </div>
@@ -73,27 +65,28 @@ export function Testimonials() {
             <Card key={testimonial.id} className="flex flex-col">
               <CardContent className="flex flex-1 flex-col justify-between p-6">
                 <blockquote className="text-lg font-medium">
-                  "{testimonial.content}"
+                  "{t(testimonial.contentKey as any)}"
                 </blockquote>
                 <div className="mt-6 flex items-center gap-4">
                   <Avatar>
                     <AvatarImage
-                      src={testimonial.author.avatar}
-                      alt={testimonial.author.name}
+                      src={testimonial.avatar}
+                      alt={t(testimonial.authorNameKey as any)}
                     />
                     <AvatarFallback>
-                      {testimonial.author.name
+                      {t(testimonial.authorNameKey as any)
                         .split(" ")
-                        .map((n) => n[0])
+                        .map((n: string) => n[0])
                         .join("")}
                     </AvatarFallback>
                   </Avatar>
                   <div>
                     <div className="font-semibold">
-                      {testimonial.author.name}
+                      {t(testimonial.authorNameKey as any)}
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {testimonial.author.role} at {testimonial.author.company}
+                      {t(testimonial.authorRoleKey as any)} at{" "}
+                      {t(testimonial.authorCompanyKey as any)}
                     </div>
                   </div>
                 </div>

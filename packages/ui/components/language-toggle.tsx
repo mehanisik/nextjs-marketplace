@@ -1,8 +1,10 @@
 "use client";
 
-import { useTolgee } from "@next-marketplace/localization/tolgee/index";
-import { setLanguage } from "@next-marketplace/localization/tolgee/language";
-import type { ALL_LANGUAGES } from "@next-marketplace/localization/tolgee/shared";
+import {
+  useChangeLocale,
+  useCurrentLocale,
+  useScopedI18n,
+} from "@next-marketplace/localization/src/client";
 import { Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import {
@@ -12,35 +14,36 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-const locales: { label: string; value: (typeof ALL_LANGUAGES)[number] }[] = [
+const locales: { label: string; value: "en" | "tr" }[] = [
   { label: "English", value: "en" },
   { label: "Türkçe", value: "tr" },
 ];
 
 export function LanguageToggle() {
-  const tolgee = useTolgee(["language"]);
-  const language = tolgee.getLanguage();
+  const locale = useCurrentLocale();
+  const changeLocale = useChangeLocale();
+  const t = useScopedI18n("language");
 
-  async function onSelectChange(value: (typeof ALL_LANGUAGES)[number]) {
-    await setLanguage(value);
+  function onSelectChange(value: "en" | "tr") {
+    changeLocale(value);
   }
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
-          {language}
+          <Globe className="h-4 w-4" />
           <span className="sr-only">Toggle language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {locales.map((locale) => (
+        {locales.map((localeItem) => (
           <DropdownMenuItem
-            key={locale.value}
-            onClick={() => onSelectChange(locale.value)}
-            className={language === locale.value ? "bg-accent" : ""}
+            key={localeItem.value}
+            onClick={() => onSelectChange(localeItem.value)}
+            className={locale === localeItem.value ? "bg-accent" : ""}
           >
-            {locale.label}
+            {t(localeItem.value)}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./styles.css";
-import { TolgeeNextProvider } from "@repo/localization/tolgee/client";
-import { getLanguage } from "@repo/localization/tolgee/language";
-import { getTolgee } from "@repo/localization/tolgee/server";
+import "../styles.css";
+import { I18nProviderClient } from "@repo/localization/src/client";
 import { DesignSystemProvider } from "@repo/ui";
-import { Header } from "./components/header";
+import { Header } from "../../components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,25 +22,26 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
-  const language = await getLanguage();
-  const tolgee = await getTolgee();
-  const staticData = await tolgee.loadRequired();
+  const { locale } = await params;
+
   return (
-    <html lang={language} suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TolgeeNextProvider language={language} staticData={staticData}>
+        <I18nProviderClient locale={locale}>
           <DesignSystemProvider>
             <div className="relative flex min-h-screen flex-col">
               <Header />
               <main className="flex-1">{children}</main>
             </div>
           </DesignSystemProvider>
-        </TolgeeNextProvider>
+        </I18nProviderClient>
       </body>
     </html>
   );
