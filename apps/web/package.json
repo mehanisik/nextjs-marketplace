@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "@next-marketplace/tsconfig": "workspace:*",
+    "@next-marketplace/localization": "workspace:*",
+    "@next-marketplace/ui": "workspace:*",
     "@types/node": "22.15.21",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",

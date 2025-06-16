@@ -1,0 +1,101 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Next Marketplace",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.ico",
+  "colors": {
+    "primary": "#0EA5E9",
+    "light": "#0EA5E9",
+    "dark": "#0284C7"
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:support@nextmarketplace.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://app.nextmarketplace.com"
+  },
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "slack",
+      "url": "https://community.nextmarketplace.com"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/your-org/next-marketplace"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "SDK",
+      "url": "sdk"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["introduction", "quickstart", "architecture", "authentication"]
+    },
+    {
+      "group": "Platform Overview",
+      "pages": [
+        "platform/web-app",
+        "platform/admin-dashboard",
+        "platform/creator-portal",
+        "platform/api"
+      ]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "features/marketplace",
+        "features/payments",
+        "features/notifications",
+        "features/analytics"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/selling",
+        "guides/buying",
+        "guides/security",
+        "guides/best-practices"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/rest",
+        "api-reference/webhooks",
+        "api-reference/errors"
+      ]
+    },
+    {
+      "group": "SDK",
+      "pages": [
+        "sdk/installation",
+        "sdk/authentication",
+        "sdk/marketplace",
+        "sdk/payments"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/nextmarketplace",
+    "github": "https://github.com/your-org/next-marketplace",
+    "linkedin": "https://www.linkedin.com/company/next-marketplace"
+  }
+}

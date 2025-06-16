@@ -278,7 +278,6 @@ packages/database/generated
 # Sentry
 .sentryclirc
 
-# Added by Task Master AI
 dev-debug.log
 # Environment variables
 # Editor directories and files

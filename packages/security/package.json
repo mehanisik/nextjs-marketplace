@@ -1,0 +1,22 @@
+{
+  "name": "@next-marketplace/security",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@arcjet/next": "1.0.0-beta.7",
+    "@nosecone/next": "1.0.0-beta.7",
+    "@t3-oss/env-nextjs": "^0.13.4",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@next-marketplace/tsconfig": "workspace:*",
+    "typescript": "^5.8.3"
+  }
+}
