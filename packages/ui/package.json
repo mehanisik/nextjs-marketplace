@@ -1,10 +1,12 @@
 {
   "name": "@next-marketplace/ui",
   "version": "1.0.0",
+  "private": true,
   "sideEffects": false,
   "scripts": {
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+    "clean": "git clean -xdf .turbo node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false",
+    "format": "biome format --write ."
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

@@ -11,11 +11,12 @@
       "node_modules/**",
       ".turbo",
       ".next",
-      ".next/**"
+      ".next/**",
+      "packages/ui/components/ui/**"
     ]
   },
   "linter": {
-    "ignore": [".wrangler", "node_modules", "packages/ui/components/ui/**"],
+    "ignore": [".wrangler", "node_modules", "packages/ui/components/**"],
     "enabled": true,
     "rules": {
       "recommended": true,
